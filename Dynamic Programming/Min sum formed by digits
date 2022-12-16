@@ -1,0 +1,15 @@
+        Arrays.sort(arr);
+        long fno=0;
+        long sno=0;
+         for(int i=0;i<n;i++){
+             if(i%2==0){
+               fno=(fno*10)+arr[i];
+            
+             }
+            else{
+                sno=(sno*10)+arr[i];
+                
+            }
+            
+        }
+        return fno+sno;
