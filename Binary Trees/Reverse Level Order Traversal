@@ -1,0 +1,30 @@
+class Tree
+{
+    public ArrayList<Integer> reverseLevelOrder(Node node) 
+    {
+        // code here
+        ArrayList<Integer>res=new ArrayList<Integer>();
+         
+        Queue<Node>q=new LinkedList<>();
+        if(node==null){
+            return res;
+        }
+        q.add(node);
+        while(!q.isEmpty()){
+            int sz=q.size();
+            for(int i=0;i<sz;i++){
+                Node currNode=q.poll();
+                res.add(currNode.data);
+                if(currNode.right!=null){
+                    q.add(currNode.right);
+                }
+                if(currNode.left!=null){
+                    q.add(currNode.left);
+                }
+            }
+            }
+            
+            Collections.reverse(res);
+            return res;
+    }
+}      
