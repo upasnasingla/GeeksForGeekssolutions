@@ -1,0 +1,30 @@
+class Solution {
+    // Function to return the diameter of a Binary Tree.
+    static class Info{
+        int ht;
+        int dim;
+        Info(int ht,int dim){
+            this.ht=ht;
+            this.dim=dim;
+        }
+    }
+    public static  Info diameter1(Node root){
+          if(root==null){
+            return new Info(0,0);
+        }
+        Info leftInfo=diameter1(root.left);
+        Info rightInfo=diameter1(root.right);
+        int diam1 = leftInfo.ht + rightInfo.ht + 1;
+        int diam2 = leftInfo.dim;
+        int diam3 = rightInfo.dim;
+
+       int dim = Math.max(diam1, Math.max(diam2, diam3));
+       int ht=Math.max(leftInfo.ht,rightInfo.ht)+1;
+        
+        Info myinfo=new Info(ht,dim);
+        return myinfo;
+    }
+    int diameter(Node root) {
+       return diameter1(root).dim;
+    }
+}
