@@ -1,0 +1,19 @@
+class Solution{
+    static List<Integer> minPartition(int N)
+    {
+       int den[]={2000,500,200,100,50,20,10,5,2,1};
+       Vector <Integer> v=new Vector<>();
+        int i=0;
+        while(i<den.length){
+            if(den[i]<=N){
+                v.add(den[i]);
+                N=N-den[i];
+                
+            }
+            else{
+                i++;
+            }
+        }
+       return v; 
+    }
+}
