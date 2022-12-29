@@ -1,0 +1,29 @@
+public static Node post_order(int p[], int size) 
+{
+    //Your code here
+    return fun(p,0,p.length-1);
+
+    }
+
+     static Node fun(int[] p,int s,int e){
+
+         if(s>e) return null;
+
+         int i=s;    //initially s=0
+
+         Node root=new Node(p[s]);  //create root node
+
+         while(i<=e && p[i]<=p[s]){
+
+             i++;
+
+         }
+
+         root.left=fun(p,s+1,i-1);
+
+         root.right=fun(p,i,e);
+
+         return root;
+
+        
+} 
