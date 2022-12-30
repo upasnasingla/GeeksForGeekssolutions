@@ -1,0 +1,37 @@
+class Solution
+{
+    public static int search(int[] arr,int low,int high,int x){
+        if(low<=high){
+          int mid=(high+low)/2;
+          if(x==arr[mid]){
+              return mid;
+          }
+          if(arr[mid]<x){
+              return search(arr,mid+1,high,x);
+          }
+          if(arr[mid]>x){
+              return search(arr,low,mid-1,x);
+          }
+          
+        }
+        return -1;
+    }
+    ArrayList<Integer> commonElements(int A[], int B[], int C[], int n1, int n2, int n3) 
+    {
+        ArrayList<Integer>arr=new ArrayList<>();
+        ArrayList<Integer>ar=new ArrayList<>();
+        for(int i=0;i<n1;i++){
+            int j=search(B,0,n2-1,A[i]);
+            if(j!=-1 && !arr.contains(B[j])){  //not equal to -1 and should not contain first
+                arr.add(B[j]);
+            }
+        }
+        for(int i=0;i<arr.size();i++){
+            int j=search(C,0,n3-1,arr.get(i));
+            if(j!=-1 &&!ar.contains(C[j])){
+                ar.add(C[j]);
+            }
+        }
+        return ar;
+    }
+}
