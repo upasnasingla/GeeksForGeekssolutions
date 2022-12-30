@@ -1,0 +1,46 @@
+class Solution 
+{
+    static public int Swaps(int n, ArrayList<Integer> l)
+    {
+        ArrayList<int[]> al = new ArrayList<>();
+     
+        for(int i = 0; i < n; i++)
+        	al.add(new int[]{l.get(i), i});
+        
+        Collections.sort(al, (a,b)->(a[0] - b[0]));
+        
+        int count = 0;
+        
+        for(int i = 0; i < n; i++)
+        {
+            if(al.get(i)[1] != i)
+            {
+                Collections.swap(al, i, al.get(i)[1]);
+                count++;
+                i--;
+            }
+             else
+             continue;
+        }
+        return count;
+    }
+    static void inorder(int a[] , ArrayList<Integer> l , int n , int i)
+    {
+        if(i >= n)
+            return;
+            
+        inorder(a, l , n , 2 * i + 1);
+        
+        l.add(a[i]);
+        
+        inorder(a, l , n , 2 * i + 2);
+    }
+    public static int minSwaps(int n, int[] A) 
+    {
+        ArrayList<Integer> al = new ArrayList<>();
+        inorder(A, al, n, 0);
+        
+        return Swaps(n, al);
+    }
+}
+        
