@@ -1,0 +1,12 @@
+class Solution
+{
+    //Function to arrange all letters of a string in lexicographical 
+    //order using Counting Sort.
+    public static String countSort(String arr)
+    {
+       char arr1[]=arr.toCharArray();   //converts to character array
+       Arrays.sort(arr1);
+       return new String(arr1);     //converts character array to string
+       
+    }
+}
