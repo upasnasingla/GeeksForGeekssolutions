@@ -1,0 +1,20 @@
+class Solution 
+{ 
+    public static long product(int nums[],int n){
+        long mult=1;
+        for(int i=0;i<nums.length;i++){
+            if(i!=n){
+                mult *= (long)nums[i];
+            }
+        }
+        return mult;
+    }
+	public static long[] productExceptSelf(int nums[], int n) 
+	{ 
+	    long arr[]=new long[n];
+      for(int i=0;i<nums.length;i++){
+          arr[i]=product(nums,i);
+      }
+      return arr;
+	} 
+} 
