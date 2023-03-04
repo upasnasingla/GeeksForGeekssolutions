@@ -1,0 +1,29 @@
+class Compute 
+{
+    public long[] minAnd2ndMin(long a[], long n)  
+    {
+        Arrays.sort(a);
+        long arr[]=new long[2];
+        long smallest=Integer.MAX_VALUE;
+        long secondsmallest=Integer.MAX_VALUE;
+        for(int i=0;i<a.length-1;i++){
+           if(a[i]<smallest){
+               smallest=a[i];
+           }
+           if(a[i+1]>smallest && a[i+1]<secondsmallest){
+               secondsmallest=a[i+1];
+               break;
+           }
+       }
+       
+       if(secondsmallest==Integer.MAX_VALUE){
+           arr[0]=-1;
+           return arr;
+       }
+        
+        arr[0]=smallest;
+        arr[1]=secondsmallest;
+        
+        return arr;
+    }
+}
