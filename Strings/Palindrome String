@@ -1,0 +1,13 @@
+class Solution {
+    int isPalindrome(String S) {
+        // code here
+        int j=S.length();
+        for(int i=0;i<S.length();i++){
+            j--;
+            if(S.charAt(i)!=S.charAt(j)){
+                return 0;
+            }
+        }
+        return 1;
+    }
+};
